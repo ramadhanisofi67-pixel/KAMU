@@ -1,0 +1,79 @@
+/* -------------------------------------------------
+   Sofi for Alif – Minimalist Romantic Web Gift
+   Colors, typography, layout, and responsive design
+   ------------------------------------------------- */
+
+:root {
+  /* Color palette */
+  --warm-white: #F8F6F2;
+  --soft-beige: #E9E1D7;
+  --dusty-rose: #C8A6A0;
+  --dark-brown: #39322F;
+  --muted-black: #252525;
+
+  /* Font families */
+  --serif-font: 'Cormorant Garamond', serif;
+  --sans-font: 'Inter', sans-serif;
+}
+
+/* Global resets */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { height: 100%; background: var(--warm-white); color: var(--muted-black); font-family: var(--sans-font); line-height: 1.6; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+body { display: flex; flex-direction: column; justify-content: center; align-items: center; overflow-x: hidden; }
+
+main#slides { width: 100%; max-width: 800px; flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: stretch; position: relative; }
+
+.slide { width: 100%; padding: 2rem; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.slide[hidden] { display: none; }
+
+/* Cover slide */
+.cover { position: relative; width: 100%; height: 100%; background: var(--warm-white) url('assets/cover.jpg') center/cover no-repeat; display: flex; align-items: center; justify-content: center; }
+.cover .overlay { position: absolute; inset: 0; background: linear-gradient(rgba(248,246,242,0.7), rgba(248,246,242,0.7)); }
+.cover .content { position: relative; max-width: 600px; font-family: var(--serif-font); color: var(--dark-brown); }
+.cover .small { font-size: 0.9rem; margin-bottom: 0.5rem; }
+.cover h1 { font-size: 2.4rem; margin: 0.5rem 0; }
+.cover h2 { font-size: 1.4rem; margin: 0.5rem 0; font-weight: 400; }
+.cover .signature { margin-top: 1rem; font-style: italic; }
+
+/* Letter and Poem */
+article.letter, article.poem { max-width: 700px; font-family: var(--serif-font); color: var(--dark-brown); line-height: 1.8; }
+article.letter h2, article.poem h2 { font-size: 1.8rem; margin-bottom: 1rem; }
+article.letter p, .wishes p { margin-bottom: 1rem; text-align: left; }
+article.letter .signature, .closing p.signature { text-align: right; font-style: italic; margin-top: 2rem; }
+pre.poem-text { white-space: pre-wrap; text-align: left; font-family: var(--serif-font); font-size: 1rem; line-height: 1.6; margin: 1rem 0; color: var(--dark-brown); }
+
+/* Gallery */
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; width: 100%; max-width: 800px; }
+.gallery figure { margin: 0; position: relative; }
+.gallery img { width: 100%; height: auto; display: block; border-radius: 4px; object-fit: cover; filter: brightness(0.95); }
+.gallery figcaption { margin-top: 0.4rem; font-size: 0.85rem; color: var(--dark-brown); }
+
+/* Wishes */
+.wishes { max-width: 600px; margin: 0 auto; }
+.wish { margin-bottom: 0.8rem; }
+
+/* Closing */
+.closing { max-width: 600px; text-align: center; }
+.closing p { margin-bottom: 1rem; }
+.closing-buttons { display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem; }
+
+/* Buttons */
+button { cursor: pointer; border: none; background: none; font-family: var(--sans-font); font-size: 1rem; padding: 0.6rem 1.2rem; border-radius: 4px; transition: background-color 0.2s ease; }
+.btn-primary { background: var(--dusty-rose); color: #fff; }
+.btn-secondary { background: var(--soft-beige); color: var(--muted-black); }
+button:hover { opacity: 0.85; }
+
+/* Footer music player */
+#player { position: fixed; bottom: 1rem; right: 1rem; background: rgba(255,255,255,0.8); backdrop-filter: saturate(180%) blur(5px); padding: 0.4rem 0.8rem; border-radius: 4px; display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; }
+#playPause { background: var(--dark-brown); color: #fff; }
+#status { min-width: 4rem; }
+
+/* Page indicator */
+#pageIndicator { position: fixed; top: 1rem; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.8); backdrop-filter: saturate(180%) blur(5px); padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.9rem; color: var(--muted-black); }
+
+/* Responsive */
+@media (max-width: 600px) { .cover h1 { font-size: 1.8rem; } .cover h2 { font-size: 1.2rem; } .cover .content { padding: 1rem; } }
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
